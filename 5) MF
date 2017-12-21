@@ -1,0 +1,11 @@
+# 5. Extract a set of normalized tables. 
+#    That is, each entry of a normalized table must contain exactly one value (not a list or a dictionary).
+
+def normalize_table(title, movie_id, df, column):
+    result = df[column].apply(pd.read_json)
+    titles = df[title]
+    ids = df[movie_id]
+    for i in range(len(df)):
+        result[i][title] = titles[i]
+        result[i][movie_id] = ids[i]
+    return pd.concat(result.values).reset_index().drop("index", axis = 1)
