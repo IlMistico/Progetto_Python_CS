@@ -1,0 +1,5 @@
+# 3. For each year, how many movies do not have a homepage?
+
+mv2 = mv[mv.homepage.isnull()]
+mv2["year"] = mv2["release_date"].str.extract("(.*)-.*-.*", expand = True)
+mv2.groupby("year").size()
