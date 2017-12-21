@@ -1,5 +1,0 @@
-n_attori = []
-for i in range(len(cr)):
-    cast = pd.read_json(cr["cast"][i])
-    n_attori.append(len(cast))
-print(n_attori)  
