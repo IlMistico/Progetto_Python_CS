@@ -1,0 +1,8 @@
+# 1. For each movie, compute the number of cast members
+
+n_attori = []
+for i in range(len(cr)):
+    cast = pd.read_json(cr["cast"][i])
+    title = cr["title"][i]
+    n_attori.append("for " + title + " the number of actors is " + str(len(cast)))
+    print(n_attori[i]) 
