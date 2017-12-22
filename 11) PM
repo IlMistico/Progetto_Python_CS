@@ -1,0 +1,2 @@
+#11. For each decade, compute the company with maximum revenue
+companies_upgraded.iloc[companies_upgraded[['name','release_decade','revenue']].groupby(by ='release_decade', as_index = False).idxmax()['revenue']]
