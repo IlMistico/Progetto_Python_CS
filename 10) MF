@@ -1,0 +1,22 @@
+#10. For each company and each decade, compute the overall revenue
+
+mv_norm["year"] = mv_norm["release_date"].str.extract("(.*)-.*-.*", expand = True)
+
+def estract_decade(year):
+    return str(year)[:3] + '0'
+
+mv_norm['decade'] = mv_norm['year'].apply(estract_decade)
+
+mv_norm_companies = production_companies.merge(right = mv_norm[['id', 'revenue','decade']], on = 'id')
+
+mv_norm_companies.groupby(by = ['production_companies','decade'], as_index = False).sum().drop('id', axis = 1)
+
+
+# (esempio) interrogare il dataset: qual è il ricavo complessivo della compagnia 21 Laps Entertainment per decade di attività? 
+
+mv_norm_companies[mv_norm_companies['production_companies']=='21 Laps Entertainment'].groupby(by=['production_companies','decade']).sum().drop('id', axis = 1)
+
+
+# (esempio) interrogare il dataset: qual è il ricavo complessivo della compagnia Walt Disney Pictures per decade di attività? 
+
+mv_norm_companies[mv_norm_companies['production_companies']=='Walt Disney Pictures'].groupby(by=['production_companies','decade']).sum().drop('id', axis = 1)
