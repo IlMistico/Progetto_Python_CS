@@ -1,0 +1,9 @@
+# 7. For each movie, compute the number of crew members
+
+crew_each_movie = crew.groupby(by = ['movie_id','title'], as_index = False).size()
+crew_each_movie
+
+
+# (esempio) interrogare il dataset: quanti membri per la crew del film #Horror? 
+
+crew[crew['title']=='#Horror'].groupby(by='title').size()
