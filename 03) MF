@@ -1,0 +1,17 @@
+# 3. For each year, how many movies do not have a homepage?
+
+mv2 = mv[mv.homepage.isnull()]
+mv2["year"] = mv2["release_date"].str.extract("(.*)-.*-.*", expand = True)
+mv2.groupby("year").size()
+
+
+# (esempio) interrogare il dataset: per l'anno 1929 quanti film non hanno una homepage? 
+
+mv2[mv2['year']=='1929'].groupby(by='year').size()
+
+
+# (esempio) interrogare il dataset: per l'anno 2007 quanti film non hanno una homepage?
+
+mv2[mv2['year']=='2007'].groupby(by='year').size()
+
+
