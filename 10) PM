@@ -1,0 +1,15 @@
+#10. For each company and each decade, compute the overall revenue
+
+def extract_year(timestamp):
+    if timestamp is np.nan:
+        return np.nan
+    else:
+        return timestamp.year
+
+def estract_decade(year):
+    return str(year)[:3] + '0'
+
+mv_norm['release_decade'] = mv_norm['release_date'].apply(pd.to_datetime).apply(extract_year).apply(estract_decade)
+
+companies_upgraded = production_companies.merge(right = mv_norm[['id', 'revenue','release_decade']], on = 'id')
+companies_upgraded.groupby(by = ['name', 'release_decade']).sum().drop('id', axis = 1)
