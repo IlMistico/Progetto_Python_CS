@@ -4,3 +4,13 @@ mv_norm_companies.groupby(by = ['production_companies','decade'], as_index = Fal
 
 
 !!! NB. invece che ritornare solo le compagnie (ci sono compagnie che hanno la stessa revenue per decade) con la massima revenue, le ritorna tutte.
+
+
+# si noti come per l'anno 1910 siano due le compagnie con la massima revenue
+
+mv_norm_companies[mv_norm_companies["decade"] == "1910"]
+
+
+# si noti come per l'anno 1920 sia sì la compagnia Metro-Goldwyn-Mayer (MGM) quella con la revenue maggiore ma non con 22000000 di incasso bensì con 26358000
+
+mv_norm_companies[mv_norm_companies["decade"] == "1920"]
