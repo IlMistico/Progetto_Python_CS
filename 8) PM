@@ -1,0 +1,2 @@
+#8. For each movie, compute the number of directors
+crew[crew['job']=='Director'].groupby(by = 'title').size().to_frame()
