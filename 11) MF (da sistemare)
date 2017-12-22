@@ -1,0 +1,6 @@
+# 11. For each decade, compute the company with maximum revenue
+
+mv_norm_companies.groupby(by = ['production_companies','decade'], as_index = False).sum().drop('id', axis = 1).groupby(by =['decade','production_companies']).max()
+
+
+!!! NB. invece che ritornare solo le compagnie (ci sono compagnie che hanno la stessa revenue per decade) con la massima revenue, le ritorna tutte.
