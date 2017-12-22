@@ -1,0 +1,2 @@
+#9. For each language, compute the number of movies where such language is spoken.
+spoken_languages.groupby(by = 'name').size().to_frame().reset_index().rename(columns = {'name': 'language', 0:'Number of movies where such language is spoken'})
