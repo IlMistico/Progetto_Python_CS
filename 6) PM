@@ -1,0 +1,7 @@
+#create normalized copies of the original dataframes
+mv_norm = mv.drop(['genres', 'keywords', 'production_companies', 'production_countries', 'spoken_languages'],axis = 1)
+cr_norm = cr.drop(['cast', 'crew'], axis = 1)
+
+#6. For each movie, compute the gross margin (difference between revenue and budget)
+mv_norm['gross_margin'] =  mv_norm['revenue'] - mv_norm['budget']
+mv_norm[['title','gross_margin']]
