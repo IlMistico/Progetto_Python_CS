@@ -1,0 +1,2 @@
+#7. For each movie, compute the number of crew members
+crew.groupby(by = 'title').size()
