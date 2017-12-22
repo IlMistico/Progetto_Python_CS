@@ -9,3 +9,13 @@ def extract_domain(hp):
    
 mv1["domains"] = mv1["homepage"].apply(extract_domain)
 mv1[["original_title", "homepage", "domains"]]
+
+
+# (esempio) interrogare il dataset: qual è il domain per il film Cargo?
+
+mv1[["original_title", "homepage", "domains"]][mv1["original_title"] ==  "Cargo"]
+
+# CASO PARTICOLARE = il film Cargo presenta due domain!!!
+
+
+
