@@ -1,0 +1,23 @@
+# 5. Extract a set of normalized tables. (la tabella cast è stata già creata per risolvere il punto 1)
+
+crew = normalize_table("title", "movie_id", cr, "crew")
+crew.rename(columns={'name':'crew_member_name'}, inplace=True)
+
+genres = normalize_table("original_title", "id", mv, "genres")
+genres.rename(columns={'name':'film_genres'}, inplace=True)
+
+keywords = normalize_table("original_title", "id", mv, "keywords")
+keywords.rename(columns={'name':'film_keyword'}, inplace=True)
+
+production_companies = normalize_table("original_title", "id", mv, "production_companies")
+production_companies.rename(columns={'name':'production_companies'}, inplace=True)
+
+production_countries = normalize_table("original_title", "id", mv, "production_countries")
+production_countries.rename(columns={'iso_3166_1':'country_id', 'name':'country'}, inplace=True)
+
+spoken_languages = normalize_table("original_title", "id", mv, "spoken_languages")
+spoken_languages.rename(columns={'iso_639_1':'language_id', 'name':'language'}, inplace=True)
+
+# Create normalized copies of the original dataframes
+mv_norm = mv.drop(['genres', 'keywords', 'production_companies', 'production_countries', 'spoken_languages'],axis = 1)
+cr_norm = cr.drop(['cast', 'crew'], axis = 1)
