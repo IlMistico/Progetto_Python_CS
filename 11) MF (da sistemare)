@@ -2,8 +2,13 @@
 
 mv_norm_companies.groupby(by = ['production_companies','decade'], as_index = False).sum().drop('id', axis = 1).groupby(by =['decade','production_companies']).max()
 
-
 !!! NB. invece che ritornare solo le compagnie (ci sono compagnie che hanno la stessa revenue per decade) con la massima revenue, le ritorna tutte.
+
+
+mv_norm_companies.groupby(by = ['production_companies','decade'], as_index = False).sum().drop('id', axis = 1).groupby(by =['decade']).max()
+
+!!! NB. ritorna la massima revenue totale per quella decade ma correlata con compagnie sbagliate.
+
 
 
 # si noti come per l'anno 1910 siano due le compagnie con la massima revenue
