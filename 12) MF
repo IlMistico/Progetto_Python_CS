@@ -1,8 +1,0 @@
-# 12. In each year, how many movies have revenue smaller than the budget?
-
-mv_norm[mv_norm["gross_margin"] < 0].groupby(by = ("year")).size()
-
-
-# (esempio) interrogare il dataset: per l'anno 1970 quanti film hanno avuto un ricavo minore del budget (gross_margin < 0)? 
-
-mv_norm[["title", "gross_margin"]][mv_norm["gross_margin"] < 0][mv_norm["year"] == "1970"]
