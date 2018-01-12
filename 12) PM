@@ -1,3 +1,0 @@
-#12. In each year, how many movies have revenue smaller than the budget?
-mv_norm['release_year'] = mv_norm['release_date'].apply(pd.to_datetime).apply(extract_year)
-mv_norm[mv_norm['gross_margin'] < 0].groupby(by = 'release_year').size()
