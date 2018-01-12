@@ -1,4 +1,0 @@
-# 14. For each actor find the total revenue attributed to him/her.
-
-actors_total_revenue = mv_norm_actors.groupby(by = "actor_name").sum()['revenue_part']
-actors_total_revenue
