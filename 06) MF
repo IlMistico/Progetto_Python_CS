@@ -1,9 +1,0 @@
-# 6. For each movie, compute the gross margin (difference between revenue and budget)
-
-mv_norm["gross_margin"] = mv_norm["revenue"] - mv_norm["budget"]
-mv_norm[['title','gross_margin']]
-
-
-# (esempio) interrogare il dataset: qual è il gross margin per il film Cargo?
-
-mv_norm[["title", "gross_margin"]][mv_norm["title"] ==  "Cargo"]
